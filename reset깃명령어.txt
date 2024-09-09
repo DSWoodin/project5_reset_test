@@ -1,0 +1,28 @@
+첫줄 (add commit)
+2 (add commit)
+3 (add)
+4 (add도 안된상태)
+이 상태에서 git status
+초록색 1개, 빨간색 1개 보임
+
+git log이용해서 원하는 커밋번호 복사 (앞에서 7자리)
+git reset --soft 커밋번호
+--> 커밋 취소, 커밋 기록 변경 X, 워킹 디렉토리 그대로, 스테이징 그대로
+git restore --staged . -> 스테이징 지우기
+git restore . -> add 하지 않은 것들 사라짐(워킹 디렉토리 지워짐)
+
+git reset --mixed 커밋번호
+--> 커밋 취소, 커밋 기록 변경 X, 워킹 디렉토리 그대로, 스테이징 지워짐(add가 사라짐)
+git restore . -> 워킹 디렉토리까지 지워짐
+
+git reset --hard 커밋번호 (전부 되돌려!)
+--> 커밋 취소, 커밋 기록 변경 O, 워킹 디렉토리 지워짐, 스테이징 지워짐
+
+git reflog -> 커밋 했던 로그들 확인
+
+git push origin main 했을때 rejected 발생시
+-> git push origin main -f (강제로 로컬에 커밋로그를 맞추기)
+
+
+공동작업에서는 reset보다는 revert를 써라?
+rebase? 불필요한 commit 정리, 통합?
